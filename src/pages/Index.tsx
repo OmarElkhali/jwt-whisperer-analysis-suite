@@ -1,9 +1,8 @@
-
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import JwtAnalyzer from "@/components/JwtAnalyzer";
-import { ShieldCheck, AlertTriangle, KeyRound, Flag, Lock, Database } from "lucide-react";
+import { ShieldCheck, AlertTriangle, KeyRound, Flag, Lock, Database, Check } from "lucide-react";
 
 const Index = () => {
   return (
