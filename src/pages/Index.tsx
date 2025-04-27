@@ -1,7 +1,9 @@
 
+import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 import JwtAnalyzer from "@/components/JwtAnalyzer";
-import { ShieldCheck, AlertTriangle, KeyRound } from "lucide-react";
+import { ShieldCheck, AlertTriangle, KeyRound, Flag } from "lucide-react";
 
 const Index = () => {
   return (
@@ -17,6 +19,13 @@ const Index = () => {
               Analysez la sécurité de vos JSON Web Tokens, identifiez les vulnérabilités 
               et apprenez à les sécuriser correctement
             </p>
+            <div className="mt-4">
+              <Link to="/labs">
+                <Button variant="outline" className="bg-white/10 hover:bg-white/20">
+                  <Flag className="mr-2 h-4 w-4" /> Accéder aux labs d'exploitation JWT
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </header>

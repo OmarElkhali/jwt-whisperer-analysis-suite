@@ -1,11 +1,10 @@
-
 import { DecodedJwt } from "@/types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { formatTimestamp } from "@/utils/jwtUtils";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Key, Calendar, User, Shield, Target } from "lucide-react";
+import { Key, Calendar, User, Shield, Target, Code } from "lucide-react";
 
 interface TokenDisplayProps {
   decodedJwt: DecodedJwt;
@@ -44,9 +43,10 @@ const TokenDisplay = ({ decodedJwt }: TokenDisplayProps) => {
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="decoded" className="w-full">
-          <TabsList className="grid grid-cols-2 mb-4">
+          <TabsList className="grid grid-cols-3 mb-4">
             <TabsTrigger value="decoded">Structure Décodée</TabsTrigger>
             <TabsTrigger value="raw">Format Brut</TabsTrigger>
+            <TabsTrigger value="json">JSON</TabsTrigger>
           </TabsList>
           
           <TabsContent value="decoded" className="space-y-6">
@@ -223,6 +223,30 @@ const TokenDisplay = ({ decodedJwt }: TokenDisplayProps) => {
                 <div className="bg-muted p-3 rounded-md font-mono text-sm break-all">
                   {raw.signature || "(aucune signature)"}
                 </div>
+              </div>
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="json">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Code size={20} className="text-blue-500" />
+                  <h3 className="text-lg font-semibold">Header</h3>
+                </div>
+                <pre className="bg-muted p-4 rounded-md font-mono text-sm overflow-auto whitespace-pre">
+                  {JSON.stringify(header, null, 2)}
+                </pre>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Code size={20} className="text-green-500" />
+                  <h3 className="text-lg font-semibold">Payload</h3>
+                </div>
+                <pre className="bg-muted p-4 rounded-md font-mono text-sm overflow-auto whitespace-pre">
+                  {JSON.stringify(payload, null, 2)}
+                </pre>
               </div>
             </div>
           </TabsContent>

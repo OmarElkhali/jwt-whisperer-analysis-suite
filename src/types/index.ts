@@ -42,3 +42,17 @@ export interface AttackVector {
   applicability: boolean;
   explanation: string;
 }
+
+export interface JwtChallenge {
+  id: string;
+  title: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  description: string;
+  objective: string;
+  hint: string;
+  solution: string;
+  initialToken: string;
+  targetClaim: string;
+  flagFormat: string;
+  checkFlag: (token: string) => boolean;
+}
