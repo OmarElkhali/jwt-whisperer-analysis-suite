@@ -55,4 +55,5 @@ export interface JwtChallenge {
   targetClaim: string;
   flagFormat: string;
   checkFlag: (token: string) => boolean;
+  scenarioContext?: string; // Contexte supplémentaire pour scénarios avancés
 }
